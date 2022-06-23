@@ -6,10 +6,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class CompareWordsSteps {
+public class CompareWordsAndSentencesSteps {
     private boolean caseSensitivityIs;
     private String firstString;
     private String secondString;
