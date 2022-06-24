@@ -2,7 +2,7 @@
 Feature: Test areWordsEqual and areSentencesEqual methods in StringHelper.class
 
   Background:
-    Given Case sensitivity is False
+    Given Case sensitivity is false
 
   Scenario: Test areWordsEqual method
     And first word equals to "Cucumber" аnd second word equals to "cucumber"
