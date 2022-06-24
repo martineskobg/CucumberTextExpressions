@@ -13,10 +13,12 @@ Feature: Test getWordsCountFromText and getCharsCount methods in StringHelper.cl
   culpa qui officia deserunt mollit anim id est  laborum.
   """
 
+  @areWordsEqual
   Scenario: Test getWordsCountFromText method
     When User call getWordsCountFromText method
     Then User verify that words count is 64
 
+  @areWordsEqual
   Scenario: Test getCharsCount method
     When User call getCharsCount method
     Then User verify the count of characters is 446
