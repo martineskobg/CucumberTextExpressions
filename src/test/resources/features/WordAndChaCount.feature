@@ -1,4 +1,5 @@
 #Martin Bachev
+@count
 Feature: Test getWordsCountFromText and getCharsCount methods in StringHelper.class
 
   Background:

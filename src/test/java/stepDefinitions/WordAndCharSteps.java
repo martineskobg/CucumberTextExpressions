@@ -22,7 +22,8 @@ public class WordAndCharSteps {
 
     @Then("User verify that word(s) count is {int}")
     public void userVerifyThatTheCountOfTheWordsIsEqualTo(int expectedCount) {
-        Assert.assertEquals(count, expectedCount);
+        Assert.assertEquals("Word Count must be equals to " + expectedCount + " but Word Count != "
+                + expectedCount, expectedCount,count );
     }
 
     @When("User call getCharsCount method")
@@ -32,7 +33,7 @@ public class WordAndCharSteps {
 
     @Then("User verify the count of character(s) is {int}")
     public void userVerifyTheCountOfCharactersIs(int characterCount) {
-        System.out.println(count);
-        Assert.assertEquals(count, characterCount);
+        Assert.assertEquals("Character Count must be equals to " + count + " but Character Count != "
+                + count, count, characterCount);
     }
 }

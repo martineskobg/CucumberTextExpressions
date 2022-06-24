@@ -1,4 +1,5 @@
 #Martin Bachev
+@count
 Feature: Test getWordsCountFromText and getCharsCount methods in StringHelper.class
 
   Background:
@@ -13,12 +14,12 @@ Feature: Test getWordsCountFromText and getCharsCount methods in StringHelper.cl
   culpa qui officia deserunt mollit anim id est  laborum.
   """
 
-  @areWordsEqual
+  @getWordsCount
   Scenario: Test getWordsCountFromText method
     When User call getWordsCountFromText method
     Then User verify that words count is 64
 
-  @areWordsEqual
+  @getCharsCount
   Scenario: Test getCharsCount method
     When User call getCharsCount method
     Then User verify the count of characters is 446

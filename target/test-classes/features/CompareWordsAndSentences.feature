@@ -1,8 +1,9 @@
 #Martin Bachev
+@equal
 Feature: Test areWordsEqual and areSentencesEqual methods in StringHelper.class
 
   Background:
-    Given Case sensitivity is False
+    Given Case sensitivity is false
 
   @areWordsEqual
   Scenario: Test areWordsEqual method
@@ -10,11 +11,9 @@ Feature: Test areWordsEqual and areSentencesEqual methods in StringHelper.class
     When User call areWordsEqual method
     Then User verify that the both words are equal
 
-  @areWordsEqual
+  @areSentencesEqual
   Scenario: Test areSentencesEqual method
     And first sentence equals to "Cucumber is amazing!" аnd second sentence equals to "cucumber is amazing!"
     When User call areSentencesEqual method
     Then User verify that the both sentences are equal
-
-
 

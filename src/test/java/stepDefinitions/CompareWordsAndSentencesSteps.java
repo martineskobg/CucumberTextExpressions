@@ -33,7 +33,7 @@ public class CompareWordsAndSentencesSteps {
 
     @Then("User verify that the both words/sentences are equal")
     public void userVerifyThatTheWordsAreEqual() {
-        assertTrue(areEqual);
+        assertTrue("The two strings are not Equal",areEqual);
     }
 
     @When("User call areSentencesEqual method")
