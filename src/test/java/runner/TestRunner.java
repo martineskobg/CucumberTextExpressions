@@ -12,6 +12,6 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         glue = "stepDefinitions",
         plugin = {"pretty"},
-        tags = "(@areWordsEqual or @areSentencesEqual) or @count")
+        tags = "@RegEx or @count")
 public class TestRunner {
 }

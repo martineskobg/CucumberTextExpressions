@@ -7,6 +7,7 @@ Feature: Extending StringHelper tests with RegEx steps
   @words
   Rule: Extend word tests with RegEx
 
+  @char
   Scenario: Compare words when first occurrence of any capital or small letter is removed
     Given first word is CucumberaazzAAZZ
     And first occurrence of a is removed
@@ -16,6 +17,7 @@ Feature: Extending StringHelper tests with RegEx steps
     When second word is cucumberazAZ
     Then verify the words are equal
 
+  @digit
   Scenario: Compare words when all occurrences of any digit are removed
     Given first word is Cucumber112233445566778899
     And all occurrences of 0 are removed
@@ -35,6 +37,7 @@ Feature: Extending StringHelper tests with RegEx steps
   @sentences
   Rule: Extend sentences tests with RegEx
 
+  @char
   Scenario: Compare sentences when first occurrence of ()[]{}: is removed
     Given first sentence is "Cucumber is amazing()[]{}:()[]{}:"
     And first occurrence of ( is removed
@@ -47,6 +50,7 @@ Feature: Extending StringHelper tests with RegEx steps
     When second sentence is "cucumber is amazing()[]{}:"
     Then verify the sentences are equal
 
+  @char
   Scenario: Compare sentences when all occurrence of .?!;,-' are removed
     Given first sentence is "Cucumber is amazing.?!;,-'.?!;,-'"
     And all occurrences of . are removed
@@ -66,7 +70,7 @@ Feature: Extending StringHelper tests with RegEx steps
     Background:
       Given input text
       """
-          Lorem ipsum dolor sit amet  ,   consectetur adipiscing elit  , sed do    eiusmod tempor incididunt ut labore et    dolore magna aliqua .
+          *Lorem ipsum dolor sit amet  ,   consectetur adipiscing elit  , sed do    eiusmod tempor incididunt ut labore et    dolore magna aliqua .
           Ut enim ad minim veniam ? Quis nostrud exercitation  ullamco laboris nisi ut aliquip ex ea commodo consequat .
 
 
@@ -74,7 +78,7 @@ Feature: Extending StringHelper tests with RegEx steps
           Excepteur sint  occaecat cupidatat non  proident, sunt in culpa qui officia deserunt mollit anim id est laborum !
       """
 
-    @count
+    @countRegEx
     Scenario: Verify the count of words and chars in a text
       When all whitespaces before , are removed
       And all whitespaces before . are removed
@@ -83,4 +87,4 @@ Feature: Extending StringHelper tests with RegEx steps
       And all whitespaces before ! are removed
       And all consecutive whitespace chars are replaced with a single space
       Then verify the input text word count is equal to 70
-      And verify the input text char count is equal to 447
+      And verify the input text char count is equal to 448
