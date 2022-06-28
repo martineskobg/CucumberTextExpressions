@@ -35,13 +35,13 @@ public class WordAndCharCountSteps {
         charCount = getCharsCount(text);
     }
 
-    @Then("verify the input text char count is equal to {int}")
+    @Then("^verify the input text char count is equal to (\\d+$)$")
     public void userVerifyTheCountOfCharactersIs(int characterCount) {
         Assert.assertEquals("Character Count must be equals to " + charCount + " but Character Count != "
                 + charCount, characterCount, charCount);
     }
 
-    @When("all whitespaces before {} are removed")
+    @When("^all whitespaces before ([\\?|\\!|,|.|\\-|:]) are removed$")
     public void allWhitespacesBeforeAreRemoved(char character) {
         text = removeWhitespaceBeforeChar(character, text);
     }
