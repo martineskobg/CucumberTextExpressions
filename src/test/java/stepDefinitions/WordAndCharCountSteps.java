@@ -23,7 +23,8 @@ public class WordAndCharCountSteps {
         wordCount = getWordsCountFromText(text);
     }
 
-    @Then("verify the input text word(s) count is equal to {int}")
+    //removed word(s) because can NOT be appended for regex
+    @Then("^verify the input text word count is equal to (\\d+$)$")
     public void userVerifyThatTheCountOfTheWordsIsEqualTo(int expectedCount) {
         Assert.assertEquals("Word Count must be equals to " + expectedCount + " but Word Count != "
                 + expectedCount, expectedCount, wordCount);

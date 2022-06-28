@@ -78,7 +78,7 @@ Feature: Extending StringHelper tests with RegEx steps
           Excepteur sint  occaecat cupidatat non  proident, sunt in culpa qui officia deserunt mollit anim id est laborum !
       """
 
-    @countRegEx
+    @count
     Scenario: Verify the count of words and chars in a text
       When all whitespaces before , are removed
       And all whitespaces before . are removed

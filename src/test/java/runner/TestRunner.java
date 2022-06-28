@@ -12,6 +12,6 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         glue = "stepDefinitions",
         plugin = {"pretty"},
-        tags = "@RegEx or @count")
+        tags = "@count or @RegEx")
 public class TestRunner {
 }

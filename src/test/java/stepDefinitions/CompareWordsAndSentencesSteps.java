@@ -15,13 +15,20 @@ public class CompareWordsAndSentencesSteps {
     private boolean areEqual;
 
 
-    @Given("set case sensitivity to {booleanValue}")
+    @Given("^set case sensitivity to (\\w+$)$")
     public void caseSensitivityIs(Boolean caseSensitive) {
         this.caseSensitivityIs = caseSensitive;
     }
 
-    @And("first word/sentence equals to {string} аnd second word/sentence equals to {string}")
+    @And("^first word equals to (\"[A-Z]{1}\\w+\") аnd second word equals to (\"\\w+\"$)$")
     public void firstWordEqualsToAndSecondWordEqualsTo(String firstString, String secondString) {
+        this.firstString = firstString;
+        this.secondString = secondString;
+    }
+
+    @And("first sentence equals to (\"[A-Z][^\"]*\") аnd second sentence equals to (\"[^\"]*\"$)$")
+    public void firstSentenceEqualsToAndSecondSentenceEqualsTo(String firstString, String secondString) {
+
         this.firstString = firstString;
         this.secondString = secondString;
     }
@@ -46,33 +53,33 @@ public class CompareWordsAndSentencesSteps {
     /**
      * Cucumber: Regular Expressions
      **/
-    @Given("first word is {word}")
+    @Given("^first word is ([a-zA-Z0-9]+$)$")
     public void firstWordIsCucumberaazzAAZZ(String firstString) {
         this.firstString = firstString;
     }
 
-    @And("first occurrence of {} is removed")
+    @And("^first occurrence of ([a-zA-Z]|[\\(\\)\\[\\]\\{\\}\\:]) is removed$")
     public void firstOccurrenceOfAIsRemoved(Character character) {
         firstString = removeFirstOccurrenceOf(character, firstString);
     }
 
-    @When("second word is {word}")
+    @When("^second word is (\\w+$)$")
     public void secondWordIsCucumberazAZ(String secondWord) {
         this.secondString = secondWord;
         this.areEqual = areWordsEqual(this.firstString, this.secondString, caseSensitivityIs);
     }
 
-    @And("all occurrences of {} are removed")
+    @And("^all occurrences of (\\d|[\\.\\?\\!\\;\\,\\-\\']) are removed$")
     public void allOccurrencesOfAreRemoved(char digit) {
         this.firstString = removeChar(digit, firstString);
     }
 
-    @Given("first sentence is {string}")
+    @Given("^first sentence is (\\\"[a-zA-Z0-9\\W\\D\\s]+\\\"$)$")
     public void firstSentenceIs(String firstSentence) {
         firstString = firstSentence;
     }
 
-    @When("second sentence is {string}")
+    @When("^second sentence is (\\\"[a-zA-Z0-9\\W\\D\\s]+\\\"$)$")
     public void secondSentenceIs(String secondSentence) {
         secondString = secondSentence;
         areEqual = areSentencesEqual(firstString, secondString, caseSensitivityIs);
